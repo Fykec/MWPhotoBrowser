@@ -32,12 +32,12 @@ Pod::Spec.new do |s|
         :tag => '1.4.0'
     }
     s.platform = :ios, '5.1.1'
-    s.source_files = 'MWPhotoBrowser/Classes/*.{h,m}'
-    s.resources = 'MWPhotoBrowser/MWPhotoBrowser.bundle'
+    s.source_files = 'Classes/*.{h,m}'
+    s.resources = 'MWPhotoBrowser.bundle'
     s.requires_arc = true
     s.frameworks = 'MessageUI', 'ImageIO', 'QuartzCore', 'AssetsLibrary', 'MapKit'
-    s.dependency 'SDWebImage', '~> 3.5.4'
-    s.dependency 'MBProgressHUD', '~> 0.8'
+    s.dependency 'AFNetworking'
+    s.dependency 'SVProgressHUD'
     s.dependency 'DACircularProgress'
     s.dependency 'PSTCollectionView', '~> 1.2'
 end
