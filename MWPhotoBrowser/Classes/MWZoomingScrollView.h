@@ -19,6 +19,9 @@
 
 @property () NSUInteger index;
 @property (nonatomic) id <MWPhoto> photo;
+@property (nonatomic, readonly) UIImageView *photoImageView;
+@property (nonatomic, readonly) MWPhotoBrowser *photoBrowser;
+
 @property (nonatomic, weak) MWCaptionView *captionView;
 @property (nonatomic, weak) UIButton *selectedButton;
 

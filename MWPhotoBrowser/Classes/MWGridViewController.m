@@ -58,7 +58,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.collectionView registerClass:[MWGridCell class] forCellWithReuseIdentifier:@"GridCell"];
+
+    if (self.browser.gridCellClass)
+    {
+        NSAssert([self.browser.gridCellClass isSubclassOfClass:[MWGridCell class]], @"[%@|%@|%d] %@", NSStringFromClass([self class]) , NSStringFromSelector(_cmd) , __LINE__ ,@"gridCellClass Must be sub Class of MWGridCell");
+
+        [self.collectionView registerClass:self.browser.gridCellClass forCellWithReuseIdentifier:@"GridCell"];
+    }
+    else
+    {
+
+        [self.collectionView registerClass:[MWGridCell class] forCellWithReuseIdentifier:@"GridCell"];
+    }
+
     self.collectionView.alwaysBounceVertical = YES;
     self.collectionView.backgroundColor = [UIColor blackColor];
 }
@@ -155,7 +167,17 @@
 - (PSTCollectionViewCell *)collectionView:(PSTCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MWGridCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GridCell" forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MWGridCell alloc] init];
+
+        if (self.browser.gridCellClass)
+        {
+
+            cell = [[self.browser.gridCellClass alloc] init];
+        }
+        else
+        {
+            cell = [[MWGridCell alloc] init];
+        }
+
     }
     id <MWPhoto> photo = [_browser thumbPhotoAtIndex:indexPath.row];
     cell.photo = photo;

@@ -14,6 +14,8 @@
 @interface MWGridCell : PSTCollectionViewCell {}
 
 @property (nonatomic, weak) MWGridViewController *gridController;
+@property (nonatomic, readonly) UIImageView *imageView;
+
 @property (nonatomic) NSUInteger index;
 @property (nonatomic) id <MWPhoto> photo;
 @property (nonatomic) BOOL selectionMode;

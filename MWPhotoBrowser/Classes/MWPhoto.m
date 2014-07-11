@@ -28,6 +28,7 @@
 
 @synthesize underlyingImage = _underlyingImage; // synth property from protocol
 
+
 #pragma mark - Class Methods
 
 + (MWPhoto *)photoWithImage:(UIImage *)image {

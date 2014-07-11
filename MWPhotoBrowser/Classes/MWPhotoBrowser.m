@@ -814,7 +814,15 @@
             // Add new page
 			MWZoomingScrollView *page = [self dequeueRecycledPage];
 			if (!page) {
-				page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
+
+                if (self.zoomingScrollViewClass && [self.zoomingScrollViewClass isSubclassOfClass:[MWZoomingScrollView class]])
+                {
+                    page = [[self.zoomingScrollViewClass alloc] initWithPhotoBrowser:self];
+                }
+                else
+                {
+                    page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
+                }
 			}
 			[_visiblePages addObject:page];
 			[self configurePage:page forIndex:index];

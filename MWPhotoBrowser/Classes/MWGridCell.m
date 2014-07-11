@@ -23,6 +23,7 @@
 @end
 
 @implementation MWGridCell
+@synthesize imageView = _imageView;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {

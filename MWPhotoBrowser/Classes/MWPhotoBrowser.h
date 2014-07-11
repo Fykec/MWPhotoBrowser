@@ -51,6 +51,10 @@
 @property (nonatomic) BOOL enableSwipeToDismiss;
 @property (nonatomic) BOOL startOnGrid;
 @property (nonatomic) NSUInteger delayToHideElements;
+@property (strong, nonatomic) Class gridCellClass; //MWGridCell's subClass
+@property (strong, nonatomic) Class zoomingScrollViewClass; //MWZoomingScrollView's subClass
+
+
 @property (nonatomic, readonly) NSUInteger currentIndex;
 
 // Init

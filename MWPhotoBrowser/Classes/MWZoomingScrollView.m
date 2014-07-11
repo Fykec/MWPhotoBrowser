@@ -27,6 +27,7 @@
 @end
 
 @implementation MWZoomingScrollView
+@synthesize photoImageView = _photoImageView, photoBrowser = _photoBrowser;
 
 - (id)initWithPhotoBrowser:(MWPhotoBrowser *)browser {
     if ((self = [super init])) {
